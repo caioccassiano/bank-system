@@ -1,2 +1,4 @@
 storagebank.db
-venv
+venv/
+__pycache__/
+.vscode/

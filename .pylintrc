@@ -17,6 +17,10 @@ disable=
       C0305,
       C0321, # multiple-statements
       W0719, # broad-exception-raised
+      W0221, #arguments-differ
+      W0237, #arguments-renamed
+
+
 
       
 # Analyse import fallback blocks. This can be used to support both Python 2 and

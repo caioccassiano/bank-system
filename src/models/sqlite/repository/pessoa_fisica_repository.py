@@ -39,7 +39,7 @@ class PessoaFisicaRepository(Client):
   def consultar_saldo(self, pessoa_fisica)-> float:
     with self.__db_connection as database:
       try:
-        consulta = database.session.query(PessoaFisica).filter_by(nome=pessoa_fisica.nome_completo).first()
+        consulta = database.session.query(PessoaFisica).filter_by(nome_completo=pessoa_fisica.nome_completo).first()
         return consulta.saldo
       
       except Exception as exception:

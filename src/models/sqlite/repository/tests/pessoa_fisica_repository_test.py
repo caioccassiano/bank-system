@@ -1,32 +1,25 @@
 from src.models.sqlite.settings.connection import db_connection_handler
 from src.models.sqlite.repository.pessoa_fisica_repository import PessoaFisicaRepository
 from src.models.sqlite.entities.pessoa_fisica import PessoaFisica
+from src.validators.schemas.pf_create_schema import PFCreateSchema
 import pytest
 
 
-db_connection_handler.connect_to_db()
+#db_connection_handler.connect_to_db()
 
-@pytest.mark.skip(reason="Test done")
+@pytest.mark.skip("Test Done")
 def test_criar_pessoa_fisica():
-  renda_mensal = 1500
-  idade = 26
-  nome_completo = "Caio Cassiano"
-  celular = "996738291"
-  email= "caio@example.com"
-  categoria= "Categoria A"
-  saldo = 3.546
+  user_data = PFCreateSchema(
+    renda_mensal = 2100,
+    idade = 60,
+    nome_completo = "Rosiclair da Rosa",
+    celular = "996738291",
+    email= "rosi@example.com",
+    categoria= "Categoria A",
+    saldo = 3.546)
 
   repo = PessoaFisicaRepository(db_connection=db_connection_handler)
-  repo.criar_pessoa_fisica(
-    renda_mensal=renda_mensal,
-    idade=idade,
-    nome_completo=nome_completo,
-    celular=celular,
-    email=email,
-    categoria=categoria,
-    saldo=saldo)
-  
-
+  repo.create_user(user=user_data)
 
 def test_consultar_saldo():
   repo = PessoaFisicaRepository(db_connection_handler)

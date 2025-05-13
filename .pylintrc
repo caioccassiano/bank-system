@@ -19,6 +19,8 @@ disable=
       W0719, # broad-exception-raised
       W0221, #arguments-differ
       W0237, #arguments-renamed
+      W0238, #unused-private-member
+
 
 
 

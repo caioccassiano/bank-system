@@ -5,7 +5,7 @@ class PessoaJuridicaRepository(Client):
   def __init__(self, db_connection)->None:
     self.__db_connection = db_connection
 
-  def criar_pessoa_juridica(
+  def create_user(
       self,
       faturamento: float,
       idade: int,

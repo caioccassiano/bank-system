@@ -1,31 +1,16 @@
 from src.models.sqlite.entities.pessoa_fisica import PessoaFisica
 from src.models.sqlite.interfaces.cliente_interface import Client
+from src.validators.schemas.pf_create_schema import PFCreateSchema
 
 class PessoaFisicaRepository(Client):
   def __init__(self, db_connection)-> None:
     self.__db_connection = db_connection
 
-  def criar_pessoa_fisica(
-      self, 
-      renda_mensal: float,
-      idade: int,
-      nome_completo: str,
-      celular: str,
-      email: str,
-      categoria: str,
-      saldo: float)-> None:
+  def create_user(self, user:PFCreateSchema)-> None:
     
     with self.__db_connection as database:
       try:
-        pessoa_fisica = PessoaFisica(
-          renda_mensal=renda_mensal,
-          idade = idade,
-          nome_completo = nome_completo,
-          celular=celular,
-          email=email,
-          categoria=categoria,
-          saldo = saldo
-        )
+        pessoa_fisica = PessoaFisica(**user.model_dump())
 
         database.session.add(pessoa_fisica)
         database.session.commit()

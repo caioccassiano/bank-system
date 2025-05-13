@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class PfCreatorInterface(ABC):
+class CreatorInterface(ABC):
 
   @abstractmethod
   def create_user(self, user_info:dict) -> dict:

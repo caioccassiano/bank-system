@@ -10,7 +10,7 @@ class PessoaFisicaRepository(Client):
     
     with self.__db_connection as database:
       try:
-        pessoa_fisica = PessoaFisica(**user.model_dump())
+        pessoa_fisica = PessoaFisica(**user)
 
         database.session.add(pessoa_fisica)
         database.session.commit()
@@ -57,6 +57,25 @@ class PessoaFisicaRepository(Client):
 
         raise exception
       
+  def find_user(self, nome:str):
+    with self.__db_connection as database:
+      try:
+        user_nome = database.session.query(PessoaFisica).filter_by(nome_completo = nome).first()
+        return user_nome
+      except Exception as exception:
+        raise exception
+      
+  def listar_usuarios_pf(self)-> list:
+    with self.__db_connection as database:
+      try:
+        pf_users = database.session.query(PessoaFisica).all()
+        return pf_users
+      except Exception as e:
+        raise e
+      
+      
+      
+
 
     
     

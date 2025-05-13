@@ -62,7 +62,21 @@ class PessoaJuridicaRepository(Client):
       except Exception as exception:
         raise exception
       
+  def find_user(self, nome:str):
+    with self.__db_connection as database:
+      try:
+        user_nome = database.session.query(PessoaJuridica).filter_by(nome_fantasia = nome).first()
+        return user_nome
+      except Exception as exception:
+        raise exception
       
+  def listar_usuarios_pj(self)-> list:
+    with self.__db_connection as database:
+      try:
+        pj_users = database.session.query(PessoaJuridica).all()
+        return pj_users
+      except Exception as e:
+        raise e
     
       
 

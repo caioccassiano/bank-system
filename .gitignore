@@ -2,3 +2,4 @@ storagebank.db
 venv/
 __pycache__/
 .vscode/
+venv39/

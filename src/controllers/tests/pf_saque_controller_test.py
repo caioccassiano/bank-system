@@ -8,13 +8,14 @@ class MockSaque:
       pessoa:str):
     pass
   
-  def consultar_saldo(self, pessoa_fisica:str)-> float:
-    return 10000
+  def consultar_saldo(self, pessoa_fisica)-> float:
+    pessoa_fisica = 10000
+    return pessoa_fisica
 
 
 
 def test_sacar_dinheiro():
-  quantia = 4000
+  quantia = 4600
   pessoa = "Caio Cesar Cassiano"
 
   controller = PFSaqueController(MockSaque())

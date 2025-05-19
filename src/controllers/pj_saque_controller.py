@@ -2,7 +2,7 @@ from src.models.sqlite.repository.pessoa_juridica_repository import PessoaJuridi
 from .interfaces.saque_interface import SaqueInterface
 
 
-class PFSaqueController(SaqueInterface):
+class PJSaqueController(SaqueInterface):
   def __init__(self, pj_repository: PessoaJuridicaRepository):
     self.__pj_repository = pj_repository
 

@@ -1,7 +1,7 @@
 from src.models.sqlite.repository.pessoa_juridica_repository import PessoaJuridicaRepository
 from .interfaces.extrato_controller_interface import RealizarExtratoInterface
 
-class PFRealizarExtratoController(RealizarExtratoInterface):
+class PJRealizarExtratoController(RealizarExtratoInterface):
   def __init__(self, pj_repository:PessoaJuridicaRepository):
     self.__pj_repository = pj_repository
 
